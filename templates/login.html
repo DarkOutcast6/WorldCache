@@ -1,0 +1,13 @@
+{% extends 'default.html' %}
+
+{% block title %}Login{% endblock %}
+{% block head %}{% endblock %}
+<h1 class="center-align">Login</h1>
+<form class="login" method="post">
+  <h2 class="error">{{ error }}</h2>
+  <label for="username">Your Geocaching Username:</label>
+  <input type="username" id="username" name="username" minlength="8" required />
+  <label for="pass">Your Geocaching Password:</label>
+  <input type="password" id="pass" name="password" minlength="8" required />
+  <button type="submit">Login</button>
+</form>

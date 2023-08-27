@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US"> 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCache - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+    <link rel="icon" href="{{ url_for('static', filename='imgs/icon.png') }}" type="image/png" />
+    {% block head %}{% endblock %}
+</head>
+        
+<body>
+    <nav>
+      <div class="nav-logo">
+        <a href="index.html">
+          <img class="nav-logo" src="{{ url_for('static', filename='imgs/logo.png') }}" alt="WorldCache Logo" title="WorldCache Logo">
+        </a>
+      </div>
+      <div class="nav"><a class="nav" href="">Home</a></div>
+      <div class="nav"><a class="nav" href="">About</a></div>
+      <div class="nav"><a class="nav" href="/login">Search</a></div>
+    </nav>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer class="footer">© 2023 WorldCache. Not affiliated with Geocaching.com, Garmin or GroundSpeak in any way, form or matter.</footer>
+</body>
+        
+</html>
