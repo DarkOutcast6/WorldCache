@@ -2,16 +2,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,700&family=Open+Sans:ital,wght@0,300;0,500;0,700;0,800;1,800&family=Oswald:wght@300;400;500;700&display=swap');
 
 /* Setup */
+html, body {
+  height: 100vh;
+}
+
 body {
   margin: 0px;
+  background-color: var(--background-clr);
 }
 
 :root {
   --background-dark: #0040d6;
   --background-light: #ffffff;
+  --nav-light: #0040d6;
+  --nav-dark: #15008a;
   --header-font: "Bellota Text";
   --default-font: "Open Sans";
-  
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-clr: var(--background-light);
+    --nav-clr: var(--nav-light);
+    --txt-clr: black;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-clr: var(--background-dark);
+    --nav-clr: var(--nav-dark);
+    --txt-clr: white;
+  }
 }
 
 /* Nav */
@@ -23,7 +45,7 @@ nav {
   width: 100%;
   height: 60px;
   font-family: var(--default-font), monospace;
-  background-color: var(--background-dark)
+  background-color: var(--nav-clr);
 }
 
 /* nav:nth-child(odd) {
@@ -64,18 +86,100 @@ h1, h2, h3 {
   font-family: var(--header-font), sans-serif;
   padding-left: 10px;
   padding-right: 10px;
+  color: var(--txt-clr);
 }
 
 h4, h5, h6 {
   font-family: var(--default-font), sans-serif;
   padding-left: 10px;
   padding-right: 10px;
+  color: var(--txt-clr);
 }
 
-p {
+p, label {
   font-family: var(--default-font), monospace;
   padding-left: 10px;
   padding-right: 10px;
+  color: var(--txt-clr);
+}
+
+a {
+  color: deepskyblue;
+  transition: 0.3s;
+  font-family: var(--default-font);
+}
+
+a:hover {
+  color: #009dd1;
+  transition: 0.3s;
+}
+
+/* Misc Defaults */
+button {
+  width: 160px;
+  height: 40px;
+  background-color: white;
+  font-family: var(--default-font),monospace;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-size: 95%;
+  transition: all 0.5s;
+}
+
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.5s;
+}
+
+input {
+  border-radius: 7px;
+  height: 25px;
+  width: 135px;
+  font-family: "Open Sans",monospace;
+  outline: none;
+  border: 1px solid #8f8f8f;
+  padding: 5px;
+  padding-left: 7px;
+  margin: 5px 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.08);
+}
+
+input.checkbox {
+  width: auto;
+  height: auto;
+  border-radius: 100%;
+}
+
+/* Other */
+.login {
+  margin: 12px;
+}
+
+h2.login {
+  margin-bottom: -7px;
+}
+
+h2.error {
+  color: red;
+  font-size: 15px;
+  margin: -7px;
+}
+
+input.search {
+  width: 35%;
+  border-radius: 100px;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: -3px;
+  margin-bottom: -13px;
+  font-size: 14px;
 }
 
 /* Configurations */
@@ -95,8 +199,9 @@ p {
 footer {
   font-family: var(--default-font), monospace;
   font-size: 12px;
-  background-color: #003cc7;
+  background-color: var(--nav-clr);
   position: fixed;
+  bottom: 0;
   width: 100%;
   height: 20px;
   color: white;

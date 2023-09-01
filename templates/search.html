@@ -1,0 +1,16 @@
+{% extends 'default.html' %}
+
+{% block title %}Cache{% endblock %}
+{% block head %}{% endblock %}
+
+{% block content %}
+<h1 class="center-align">Search</h1>
+<form class="search center-align" method="post">
+  <input class="search" type="search" id="search-caches" name="search-caches" placeholder="Search" list="suggestions" required>
+</form>
+
+<datalist id="suggestions">
+  <option value="🏠Home Location">
+  <option value="📌Current Location">
+</datalist>
+{% endblock %}

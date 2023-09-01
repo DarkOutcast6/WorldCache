@@ -1,13 +1,41 @@
-{% extends 'default.html' %}
+<!DOCTYPE html>
+<html lang="en-US"> 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorldCache - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+  <link rel="icon" href="{{ url_for('static', filename='imgs/icon.png') }}" type="image/png" />
+  <meta name="author" content="DarkOutcast6">
+  <meta name="description" content="A Geocaching Community">
+  <meta name="keywords" content="geocaching, geocache, cache, world, find, treasure, hunt">
+  <meta propety="og:image" content="{{ url_for('static', filename='imgs/icon.png') }}">
+  <meta property="og:description" content="A Geocaching Community">
+  <meta property="og:title" content="WorldCache">
+</head>
 
-{% block title %}Home{% endblock %}
-{% block head %}{% endblock %}
+<body>
+  {% if loggedIn %}
+    <script>location.replace('/home')</script>
+  {% endif %}
+  
+  <nav>
+    <div class="nav-logo">
+      <a href="/">
+        <img class="nav-logo" src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Logo" title="Logo">
+      </a>
+    </div>
+      <div class="nav"><a class="nav" href="/">Home</a></div>
+      <a href="/login"><button class="nav">Sign In</button></a>
+  </nav>  
+  
+  <h1 class="center-align">WorldCache</h1>
+  <h2 class="left-align">What is WorldCache?</h2>
+  <p class="left-align">Every heard of Geocaching? Geocaching is a outdoor, recreational treasure hunt, founded in 2000. Since then millions of caches are scatterted across the world, waiting for users to find them. WorldCache is a third party website that makes finding caches easier and more accesible for all.</p>
+  <h2 class="left-align">What are the Primary Differences Between Geocaching.com and WorldCache?</h2>
+  <p class="left-align">WorldCache makes finding Geocaches <i>even easier!</i> With the reimagined, dynamic design, information is easier to find then ever! WorldCache also is a community for Geocaching. It allows you to meet other Geocachers and even find a cache or two together!</p>
+  <footer class="footer">© 2023 WorldCache. Not affiliated with Geocaching.com, Garmin or GroundSpeak in any way, form or matter.</footer>
+</body>
 
-{% block content %}
-<h1 class="center-align">WorldCache</h1>
-<h2 class="left-align">What is <a href="index.html">WorldCache</a>?</h2>
-<p class="left-align">Every heard of <a href="geocaching.com">Geocaching</a>? Geocaching is a outdoor, recreational treasure hunt, founded in 2000. Since then millions of caches are scatterted across the world, waiting for users to find them. <a href="index.html">WorldCache</a> is a third party website that makes finding caches easier and more accesible for all.</p>
-<h2 class="left-align">Who Created <a href="index.html">WorldCache</a>?</h2>
-<p class="left-align"><a href="index.html">WorldCache</a> was created in 2023 by <a href="austinf.me">DarkOutcast6</a>, otherwise known as "RedCoder".</p>
-
-{% endblock %}
+</html>

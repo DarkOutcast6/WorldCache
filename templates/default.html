@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-US"> 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCache - {% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
-    <link rel="icon" href="{{ url_for('static', filename='imgs/icon.png') }}" type="image/png" />
-    {% block head %}{% endblock %}
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorldCache - {% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+  <link rel="icon" href="{{ url_for('static', filename='imgs/icon.png') }}" type="image/png" />
+  <meta name="author" content="DarkOutcast6">
+  <meta name="description" content="A Geocaching Community">
+  <meta name="keywords" content="geocaching, geocache, cache, world, find, treasure, hunt">
+  <meta propety="og:image" content="{{ url_for('static', filename='imgs/icon.png') }}">
+  <meta property="og:description" content="A Geocaching Community">
+  <meta property="og:title" content="WorldCache">
+  {% block head %}{% endblock %}
 </head>
         
 <body>
+  {% if not loggedIn %}
+    <script>location.replace('/login')</script>
+  {% endif %}
+  
+<script>
+  let body = document.body;
+  let geocaching = '<a href="https://geocaching.com">Geocaching</a>';
+  document.addEventListener("DOMContentLoaded", () => {
+    body.innerHTML = body.innerHTML.replaceAll("Geocaching.com", geocaching).replaceAll("Geocaching", geocaching).replaceAll("DarkOutcast6", '<a href="https://austinf.me">DarkOutcast6</a>');
+</script>
+
     <nav>
       <div class="nav-logo">
-        <a href="index.html">
-          <img class="nav-logo" src="{{ url_for('static', filename='imgs/logo.png') }}" alt="WorldCache Logo" title="WorldCache Logo">
+        <a href="/">
+          <img class="nav-logo" src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Logo" title="Logo">
         </a>
       </div>
-      <div class="nav"><a class="nav" href="">Home</a></div>
-      <div class="nav"><a class="nav" href="">About</a></div>
-      <div class="nav"><a class="nav" href="/login">Search</a></div>
+      <div class="nav"><a class="nav" href="/home">Home</a></div>
+      <div class="nav"><a class="nav" href="/about">About</a></div>
+      <div class="nav"><a class="nav" href="/search">Search</a></div>
     </nav>
     <main class="container">
         {% block content %}{% endblock %}

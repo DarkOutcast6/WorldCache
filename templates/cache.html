@@ -1,0 +1,11 @@
+{% extends 'default.html' %}
+
+{% block title %}Cache{% endblock %}
+{% block head %}{% endblock %}
+
+{% block content %}
+<h1>{{ cacheName }}</h1>
+<h3>A cache placed by <a href="https://www.geocaching.com/profile/?u={{ cacheAuthor }}">{{ cacheAuthor }}</a></h3>
+<p>{{ cacheDescription }}</p>
+<p>{{ cacheDifficulty }}</p>
+{% endblock %}
