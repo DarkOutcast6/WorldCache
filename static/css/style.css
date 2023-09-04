@@ -62,13 +62,17 @@ div.nav {
 
 div.nav-logo {
   flex-direction: horizontal;
-  width: auto;
-  height: 80%;
+  width: 45px;
+  max-width: 45px;
+  height: 45px;
+  max-height: 45px;
 }
 
 img.nav-logo {
   width: 100%;
+  max-width: 100%;
   height: 100%;
+  max-height: 100%;
 }
 
 a.nav {
@@ -179,6 +183,40 @@ input.search {
   justify-content: center;
   padding: -3px;
   margin-bottom: -13px;
+  font-size: 14px;
+}
+
+img.cacheType {
+  width: auto;
+  max-width: 50px;
+  height: auto;
+}
+
+/* Other: Ratings */
+div.rating-container {
+  display: flex;
+}
+
+div.rating {
+  width: 60px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background-color: #000085;
+  color: white;
+  border-radius: 1000px;
+  margin-left: 8px;
+}
+
+img.rating {
+  height: 80%;
+  width: auto;
+}
+
+p.rating {
   font-size: 14px;
 }
 

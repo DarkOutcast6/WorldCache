@@ -44,7 +44,7 @@ def search():
 @app.route("/cache/<cacheWP>")
 def cache(cacheWP):
   cache = geocaching.get_cache(wp=cacheWP)
-  return render_template("cache.html", cacheAuthor = cache.author, cacheDescription = cache.description, cacheTerrain = cache.terrain, cacheDifficulty = cache.difficulty)
+  return render_template("cache.html", cacheName = cache.name, cacheAuthor = cache.author, cacheDescription = cache.description, cacheTerrain = cache.terrain, cacheDifficulty = cache.difficulty, cacheType = str(cache.type).split(".")[1])
 
 @app.route("/login")
 def login():
