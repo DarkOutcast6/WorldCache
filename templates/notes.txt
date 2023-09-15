@@ -1,0 +1,4 @@
+SEARCH CODE DISABLED:
+      # return str(geocaching.search(pycaching.Point.from_string(user_input),100,pycaching.geocaching.SortOrder.distance,False,100,pycaching.Point.from_string(user_input),None))
+      # return str(pycaching.advanced_search({"st": "N 34° 08.433 W 118° 28.031", "ot": "coords", "r": "20", "asc": "true", "sort": "distance"}))
+      # https://www.geocaching.com/play/results/?st=N+34%C2%B0+8.845%27+W+118%C2%B0+27.933%27&ot=coords&r=30&asc=true&sort=distance

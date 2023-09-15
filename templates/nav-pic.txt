@@ -1,1 +1,0 @@
-      <!-- <div class="nav-pic"><img src="{{ profile-pic }}" alt="{{ username }}" title="{{ username }}"></div> -->

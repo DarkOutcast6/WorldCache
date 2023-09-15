@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html lang="en-US"> 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Primary Meta Tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
   <title>WorldCache - {% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
-  <link rel="icon" href="{{ url_for('static', filename='imgs/icon.png') }}" type="image/png" />
-  <meta name="author" content="DarkOutcast6">
-  <meta name="description" content="A Geocaching Community">
-  <meta name="keywords" content="geocaching, geocache, cache, world, find, treasure, hunt">
-  <meta propety="og:image" content="{{ url_for('static', filename='imgs/icon.png') }}">
-  <meta property="og:description" content="A Geocaching Community">
-  <meta property="og:title" content="WorldCache">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="{{ url_for('static', filename='imgs/icon.svg') }}">
+	<meta name="description" content="A Geocaching Community.">
+	<meta name="author" content="WorldCache">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://worldcache.redcoder.repl.co/" />
+  <meta property="og:title" content="WorldCache" />
+  <meta property="og:description" content="A Geocaching Community." />
+  <meta property="og:image" content="{{ url_for('static', filename='imgs/logo.svg') }}" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://worldcache.redcoder.repl.co/" />
+  <meta property="twitter:title" content="WorldCache" />
+  <meta property="twitter:description" content="A Geocaching Community." />
+  <meta property="twitter:image" content="{{ url_for('static', filename='imgs/logo.svg') }}" />
+
+  <!-- Other Icons -->
+  <link
+    rel="apple-touch-icon-precomposed"
+    sizes="144x144"
+    href="{{ url_for('static', filename='imgs/icon144.svg') }}" />
+  <link
+    rel="apple-touch-icon-precomposed"
+    sizes="114x114"
+    href="{{ url_for('static', filename='imgs/icon114.svg') }}" />
+  <link
+    rel="apple-touch-icon-precomposed"
+    sizes="72x72"
+    href="{{ url_for('static', filename='imgs/icon72.svg') }}" />
+  <link
+    rel="apple-touch-icon-precomposed"
+    href="{{ url_for('static', filename='imgs/icon57.svg') }}" />
   {% block head %}{% endblock %}
 </head>
         
@@ -31,7 +58,7 @@
     <nav>
       <div class="nav-logo">
         <a href="/">
-          <img class="nav-logo" src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Logo" title="Logo">
+          <img class="nav-logo" src="{{ url_for('static', filename='imgs/logo.svg') }}" alt="Logo" title="Logo">
         </a>
       </div>
       <div class="nav"><a class="nav" href="/home">Home</a></div>

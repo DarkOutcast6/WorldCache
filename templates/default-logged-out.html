@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US"> 
+<head>
+  <!-- Primary Meta Tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>WorldCache - {% block title %}{% endblock %}</title>
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="{{ url_for('static', filename='imgs/icon.svg') }}">
+	<meta name="description" content="A Geocaching Community.">
+	<meta name="author" content="WorldCache">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://worldcache.redcoder.repl.co/" />
+  <meta property="og:title" content="WorldCache" />
+  <meta property="og:description" content="A Geocaching Community." />
+  <meta property="og:image" content="{{ url_for('static', filename='imgs/logo.svg') }}" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://worldcache.redcoder.repl.co/" />
+  <meta property="twitter:title" content="WorldCache" />
+  <meta property="twitter:description" content="A Geocaching Community." />
+  <meta property="twitter:image" content="{{ url_for('static', filename='imgs/logo.svg') }}" />
+
+  <!-- Other Icons -->
+  <link
+    rel="apple-touch-icon-precomposed"
+    sizes="144x144"
+    href="{{ url_for('static', filename='imgs/icon144.svg') }}" />
+  <link
+    rel="apple-touch-icon-precomposed"
+    sizes="114x114"
+    href="{{ url_for('static', filename='imgs/icon114.svg') }}" />
+  <link
+    rel="apple-touch-icon-precomposed"
+    sizes="72x72"
+    href="{{ url_for('static', filename='imgs/icon72.svg') }}" />
+  <link
+    rel="apple-touch-icon-precomposed"
+    href="{{ url_for('static', filename='imgs/icon57.svg') }}" />
+  {% block head %}{% endblock %}
+</head>
+        
+<body>
+  {% if loggedIn %}
+    <script>location.replace('/home')</script>
+  {% endif %}
+  
+  <script>
+    let body = document.body;
+    let geocaching = '<a href="https://geocaching.com">Geocaching</a>';
+    document.addEventListener("DOMContentLoaded", () => {
+      body.innerHTML = body.innerHTML.replaceAll("Geocaching.com", geocaching).replaceAll("Geocaching", geocaching).replaceAll("DarkOutcast6", '<a href="https://austinf.me">DarkOutcast6</a>');
+  </script>
+
+  <nav>
+    <div class="nav-logo">
+      <a href="/">
+        <img class="nav-logo" src="{{ url_for('static', filename='imgs/logo.svg') }}" alt="Logo" title="Logo">
+      </a>
+    </div>
+      <div class="nav"><a class="nav" href="/">Home</a></div>
+      <a href="/login"><button class="nav">Sign In</button></a>
+  </nav>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer class="footer">© 2023 WorldCache. Not affiliated with Geocaching.com, Garmin or GroundSpeak in any way, form or matter.</footer>
+</body>
+        
+</html>

@@ -4,6 +4,7 @@
 /* Setup */
 html, body {
   height: 100vh;
+  min-height: 100vh;
 }
 
 body {
@@ -140,7 +141,7 @@ button:hover {
 
 input {
   border-radius: 7px;
-  height: 25px;
+  height: 32px;
   width: 135px;
   font-family: "Open Sans",monospace;
   outline: none;
@@ -174,7 +175,10 @@ h2.error {
 
 input.search {
   width: 35%;
-  border-radius: 100px;
+  min-width: 230px;
+  border-radius: 18px;
+  padding: 13px;
+  border: 1px solid var(--txt-clr);
 }
 
 .rememberMe {
@@ -192,9 +196,105 @@ img.cacheType {
   height: auto;
 }
 
-/* Other: Ratings */
+/* Other: Cache Page */
+div.cache-container {
+  display: flex;
+  flex-direction: row;
+}
+
+div.cache-info {
+  display: flexbox;
+  width: 65%;
+  margin-left: 20px;
+}
+
+div.info-header {
+  display: flex;
+  margin-left: 8px;
+  margin-bottom: -17px;
+}
+
+div.cache-controls {
+  display: flex;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 35%;
+}
+
+div.log-cache {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 80%;
+  width: 50%;
+  max-width: 250px;
+  background-color: #7eb7ec;
+  color: black;
+  border-radius: 8px;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+button.log-cache {
+  width: 100%;
+  height: 100%;
+}
+
+a.log-cache-1 {
+  padding-top: 10px;
+  width: 70%;
+  max-width: 70%;
+  height: 40px;
+  min-height: 40px;
+}
+
+a.log-cache {
+  padding-top: 6px;
+  color: black;
+}
+
+a.log-cache:hover {
+  opacity: 0.4;
+}
+
+/* Other: Cache Page: Logs */
+div.log-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.log {
+  width: 97%;
+  min-height: 130px;
+  border: 2.5px solid #a3a3a3;
+  border-radius: 20px;
+  /* padding: 5px; */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+img.log {
+  width: 30px;
+  height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  padding: 6px;
+}
+
+div.log-header {
+  color: var(--txt-clr);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 2px solid #a3a3a3;
+}
+
+/* Other: Cache Page: Ratings */
 div.rating-container {
   display: flex;
+  color: white;
 }
 
 div.rating {
@@ -218,6 +318,7 @@ img.rating {
 
 p.rating {
   font-size: 14px;
+  color: white;
 }
 
 /* Configurations */
@@ -233,15 +334,62 @@ p.rating {
   text-align: right;
 }
 
+.font-default {
+  font-family: var(--default-font);
+}
+
+.color-white {
+  color: white;
+}
+
+.max-size {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.flex-dead-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.no-decor {
+  text-decoration: none;
+  list-style: none;
+}
+
+.inline {
+  display: inline;
+}
+
 /* Footer */
 footer {
   font-family: var(--default-font), monospace;
   font-size: 12px;
   background-color: var(--nav-clr);
-  position: fixed;
+  /* position: sticky; */
   bottom: 0;
-  width: 100%;
-  height: 20px;
+  /* width: 100%;
+  max-width: 100%; */
+  min-height: 20px;
   color: white;
   padding: 8px;
+}
+
+/* Mobile Layout */
+@media screen and (max-width: 750px) {
+  div.cache-container {flex-direction: column;}
+  div.cache-info, div.cache-controls{width: 100%; margin-bottom: 20px;}
+  div.cache-info {justify-content: center; text-align: center; margin-left: 0px;}
+  div.rating-container {justify-content: center;}
+  div.info-header {flex-direction: column; align-items: center;}
+  img.cacheType {width: 75px; max-width: 75px; height: auto; margin-top: 20px;}
+  div.log-cache {width: 100%; max-width: 90%;}
 }

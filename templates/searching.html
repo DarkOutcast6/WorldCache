@@ -1,0 +1,55 @@
+{% extends 'default.html' %}
+
+{% block title %}Cache{% endblock %}
+{% block head %}{% endblock %}
+
+{% block content %}
+<h1 class="center-align">Search</h1>
+<form class="search center-align" method="post">
+  <input class="search" type="search" id="search-caches" name="search-caches" placeholder="Search for Coordinates, Caches or Trackables" list="suggestions" required>
+</form>
+
+<datalist id="suggestions">
+  <option value="🏠Home Location">
+  <option value="📌Current Location">
+</datalist>
+
+{% if results == "no-results"%}
+  <h2 class="center-align">Your search yielded no results! ☹️</h2>
+{% else %}
+  <div class="search-results">
+    {% for i in results %}
+      <div class="search-result">
+        <div class="inline">
+          {% if i.type == "traditional"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_traditional.svg') }}" alt="Traditional Cache" title="Traditional Cache">
+          {% elif i.type == "multicache"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_multi.svg') }}" alt="Multi-Cache" title="Multi-Cache">
+          {% elif i.type == "mystery"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_mystery.svg') }}" alt="Mystery Cache" title="Mystery Cache">
+          {% elif i.type == "earthcache"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_earth.svg') }}" alt="EarthCache" title="EarthCache">
+          {% elif i.type == "letterbox"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_letterbox.svg') }}" alt="Letterbox Hybrid" title="Letterbox Hybrid">
+          {% elif i.type == "event"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_event.svg') }}" alt="Event Cache" title="Event Cache">
+          {% elif i.type == "cito"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_cito.svg') }}" alt="Cache In Trash Out Event (CITO)" title="Cache In Trash Out Event (CITO)">
+          {% elif i.type == "mega_event"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_mega.svg') }}" alt="Mega Event Cache" title="Mega Event Cache">
+          {% elif i.type == "giga_event"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_giga.svg') }}" alt="Giga Event Cache" title="Giga Event Cache">
+          {% elif i.type == "virtual"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_virtual.svg') }}" alt="Virtual Cache" title="Virtual Cache">
+          {% elif i.type == "wherigo"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_wherigo.svg') }}" alt="Wherigo Cache" title="Wherigo Cache">
+          {% elif i.type == "webcam"%}
+            <img class="cacheType" src="{{ url_for('static', filename='imgs/type_webcam.svg') }}" alt="Webcam Cache" title="Webcam Cache">
+          {% endif %}
+          <p>{{ i.name }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endblock %}

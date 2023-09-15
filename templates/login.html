@@ -1,35 +1,9 @@
-<!DOCTYPE html>
-<html lang="en-US"> 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WorldCache - Login</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
-  <link rel="icon" href="{{ url_for('static', filename='imgs/icon.png') }}" type="image/png" />
-  <meta name="author" content="DarkOutcast6">
-  <meta name="description" content="A Geocaching Community">
-  <meta name="keywords" content="geocaching, geocache, cache, world, find, treasure, hunt">
-  <meta propety="og:image" content="{{ url_for('static', filename='imgs/icon.png') }}">
-  <meta property="og:description" content="A Geocaching Community">
-  <meta property="og:title" content="WorldCache">
-</head>
+{% extends 'default-logged-out.html' %}
 
-<body>
-  {% if loggedIn %}
-    <script>location.replace('/home')</script>
-  {% endif %}
-  
-  <nav>
-    <div class="nav-logo">
-      <a href="/">
-        <img class="nav-logo" src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Logo" title="Logo">
-      </a>
-    </div>
-      <div class="nav"><a class="nav" href="/">Home</a></div>
-      <a href="/login"><button class="nav">Sign In</button></a>
-  </nav>  
-  
+{% block title %}Login{% endblock %}
+{% block head %}{% endblock %}
+
+{% block content %}
   <h2 class="center-align login">Sign in to your account</h2>
   <form class="login center-align" method="post">
     <h2 class="error">{{ error }}</h2>
@@ -43,12 +17,8 @@
       <label>Remember Me</label>
     </div>
     <br>
-    <button class="login" type="submit">Login</button>
+    <button class="login" type="submit">Sign In</button>
     <br>
     <a href="/blog/get-an-account">No Geocaching account? Learn how to get one!</a>
   </form>
-    
-  <footer class="footer">© 2023 WorldCache. Not affiliated with Geocaching.com, Garmin or GroundSpeak in any way, form or matter.</footer>
-</body>
-
-</html>
+{% endblock %}

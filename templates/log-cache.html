@@ -1,0 +1,14 @@
+{% extends 'default.html' %}
+
+{% block title %}Log {{ cacheName }}{% endblock %}
+{% block head %}{% endblock %}
+
+{% block content %}
+<div class="flex-dead-center">
+  <h1>Log {{ cacheName }}</h1>
+  <form id="log-cache">
+    <input class="log-cache-input" type="text">
+    <button type="submit">Upload Log</button>
+  </form>
+</div>
+{% endblock %}

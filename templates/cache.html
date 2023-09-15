@@ -1,47 +1,109 @@
 {% extends 'default.html' %}
 
-{% block title %}Cache{% endblock %}
+{% block title %}{{ cacheName }} by {{ cacheAuthor }}{% endblock %}
 {% block head %}{% endblock %}
 
 {% block content %}
-<div style="display: flex; margin-left: 8px; margin-bottom: -17px;">
-  {% if cacheType == "traditional"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_traditional.svg') }}" alt="Traditional Cache" title="Traditional Cache">
-  {% elif cacheType == "multicache"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_multi.svg') }}" alt="Multi-Cache" title="Multi-Cache">
-  {% elif cacheType == "mystery"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_mystery.svg') }}" alt="Mystery Cache" title="Mystery Cache">
-  {% elif cacheType == "earthcache"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_earth.svg') }}" alt="EarthCache" title="EarthCache">
-  {% elif cacheType == "letterbox"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_letterbox.svg') }}" alt="Letterbox Hybrid" title="Letterbox Hybrid">
-  {% elif cacheType == "event"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_event.svg') }}" alt="Event Cache" title="Event Cache">
-  {% elif cacheType == "cito"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_cito.svg') }}" alt="Cache In Trash Out Event (CITO)" title="Cache In Trash Out Event (CITO)">
-  {% elif cacheType == "mega_event"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_mega.svg') }}" alt="Mega Event Cache" title="Mega Event Cache">
-  {% elif cacheType == "giga_event"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_giga.svg') }}" alt="Giga Event Cache" title="Giga Event Cache">
-  {% elif cacheType == "virtual"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_virtual.svg') }}" alt="Virtual Cache" title="Virtual Cache">
-  {% elif cacheType == "wherigo"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_wherigo.svg') }}" alt="Wherigo Cache" title="Wherigo Cache">
-  {% elif cacheType == "webcam"%}
-    <img class="cacheType" src="{{ url_for('static', filename='imgs/type_webcam.svg') }}" alt="Webcam Cache" title="Webcam Cache">
-  {% endif %}
-  <h1>{{ cacheName }}</h1>
-</div>
-<h3 style="font-size: 16px;">A cache placed by <a href="https://www.geocaching.com/profile/?u={{ cacheAuthor }}">{{ cacheAuthor }}</a></h3>
-<div class="rating-container">
-  <div class="rating">
-    <img class="rating" src="{{ url_for('static', filename='imgs/difficulty.png') }}" alt="Difficulty" title="Difficulty">
-    <p class="rating">{{ cacheDifficulty }}</p>
+<div class="cache-container">
+  <div class="cache-info">
+    <div class="info-header">
+      {% if cacheType == "traditional"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_traditional.svg') }}" alt="Traditional Cache" title="Traditional Cache">
+      {% elif cacheType == "multicache"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_multi.svg') }}" alt="Multi-Cache" title="Multi-Cache">
+      {% elif cacheType == "mystery"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_mystery.svg') }}" alt="Mystery Cache" title="Mystery Cache">
+      {% elif cacheType == "earthcache"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_earth.svg') }}" alt="EarthCache" title="EarthCache">
+      {% elif cacheType == "letterbox"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_letterbox.svg') }}" alt="Letterbox Hybrid" title="Letterbox Hybrid">
+      {% elif cacheType == "event"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_event.svg') }}" alt="Event Cache" title="Event Cache">
+      {% elif cacheType == "cito"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_cito.svg') }}" alt="Cache In Trash Out Event (CITO)" title="Cache In Trash Out Event (CITO)">
+      {% elif cacheType == "mega_event"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_mega.svg') }}" alt="Mega Event Cache" title="Mega Event Cache">
+      {% elif cacheType == "giga_event"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_giga.svg') }}" alt="Giga Event Cache" title="Giga Event Cache">
+      {% elif cacheType == "virtual"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_virtual.svg') }}" alt="Virtual Cache" title="Virtual Cache">
+      {% elif cacheType == "wherigo"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_wherigo.svg') }}" alt="Wherigo Cache" title="Wherigo Cache">
+      {% elif cacheType == "webcam"%}
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_webcam.svg') }}" alt="Webcam Cache" title="Webcam Cache">
+      {% endif %}
+      <h1>{{ cacheName }}</h1>
+    </div>
+    <h3 style="font-size: 16px;">A cache placed by <a href="https://www.geocaching.com/profile/?u={{ cacheAuthor }}">{{ cacheAuthor }}</a></h3>
+    <div class="rating-container">
+      <div class="rating">
+        <img class="rating" src="{{ url_for('static', filename='imgs/difficulty.png') }}" alt="Difficulty" title="Difficulty">
+        <p class="rating">{{ cacheDifficulty }}</p>
+      </div>
+      <div class="rating">
+        <img class="rating" src="{{ url_for('static', filename='imgs/terrain.png') }}" alt="Terrain" title="Terrain">
+        <p class="rating">{{ cacheTerrain }}</p>
+      </div>
+    </div>
+    <p>{{ cacheDescription }}</p>
   </div>
-  <div class="rating">
-    <img class="rating" src="{{ url_for('static', filename='imgs/terrain.png') }}" alt="Terrain" title="Terrain">
-    <p class="rating">{{ cacheTerrain }}</p>
+  <div class="cache-controls">
+    <div class="log-cache">
+      <a class="log-cache-1" href="cache/{{ cacheWP }}/log">
+        <button class="log-cache">Log Cache</button>
+      </a>
+      <a class="log-cache">
+        <span>View All Logs ({{ logCount }})</span>
+      </a>
+      <a class="log-cache">
+        <span>Item 2</span>
+      </a>
+      </ul>
+    </div>
   </div>
 </div>
-<p>{{ cacheDescription }}</p>
+
+<div class="log-container">
+  {% for i in logs %}
+    <div class="log">
+      <div class="log-header">
+        {% if i["type"] == "Type.found_it"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/found.svg') }}" alt="Found It" title="Found It"> 
+        {% elif i["type"] == "Type.didnt_find_it"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/did_not_find.svg') }}" alt="Did Not Find It" title="Did Not Find It"> 
+        {% elif i["type"] == "Type.needs_maintenance"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/needs_maintenance.svg') }}" alt="Needs Maintenance" title="Needs Maintenance"> 
+        {% elif i["type"] == "Type.note"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/note.svg') }}" alt="Note" title="Note"> 
+        {% elif i["type"] == "Type.will_attend"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/will_attend.svg') }}" alt="Will Attend" title="Will Attend"> 
+        {% elif i["type"] == "Type.publish_listing"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/publish_listing.svg') }}" alt="Publish Listing" title="Publish Listing"> 
+        {% elif i["type"] == "Type.archive"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/archive.svg') }}" alt="Archived" title="Archived"> 
+        {% elif i["type"] == "Type.marked_missing"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/missing.svg') }}" alt="Missing" title="Missing"> 
+        {% elif i["type"] == "Type.attended"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/attended.svg') }}" alt="Attended" title="Attended"> 
+        {% elif i["type"] == "Type.owner_maintenance"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/owner_maintenance.svg') }}" alt="Owner Maintenance" title="Owner Maintenance">
+        {% elif i["type"] == "Type.enable_listing"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/enable_listing.svg') }}" alt="Enable Listing" title="Enable Listing">
+        {% elif i["type"] == "Type.post_reviewer_note"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/reviewer_note.svg') }}" alt="Reviewer Note" title="Reviewer Note">
+        {% elif i["type"] == "Type.temp_disable_listing"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/temp_disable_listing.svg') }}" alt="Temporarily Disabled Listing" title="Temporarily Disabled Listing">
+        {% elif i["type"] == "Type.update_coordinates"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/update_coordinates.svg') }}" alt="Update Coordinates" title="Update Coordinates">
+        {% elif i["type"] == "Type.submit_for_review"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/submit_for_review.svg') }}" alt="Submit For Review" title="Submit For Review">
+        {% elif i["type"] == "Type.attended"%}
+          <img class="log" src="{{ url_for('static', filename='imgs/attended.svg') }}" alt="Attended" title="Attended">
+        {% endif %}
+        <span class="font-default">{{ i["author"] }}</span>
+      </div>
+      {{ i["text"] | safe }}
+    </div>
+  {% endfor %}
+</div>
 {% endblock %}
