@@ -4,9 +4,37 @@
 {% block head %}{% endblock %}
 
 {% block content %}
-<h1 class="center-align">WorldCache</h1>
-  <h2 class="left-align">What is WorldCache?</h2>
-  <p class="left-align">Every heard of Geocaching? Geocaching is a outdoor, recreational treasure hunt, founded in 2000. Since then millions of caches are scatterted across the world, waiting for users to find them. WorldCache is a third party website that makes finding caches easier and more accesible for all.</p>
-  <h2 class="left-align">What are the Primary Differences Between Geocaching.com and WorldCache?</h2>
-  <p class="left-align">WorldCache makes finding Geocaches <i>even easier!</i> With the reimagined, dynamic design, information is easier to find then ever! WorldCache also is a community for Geocaching. It allows you to meet other Geocachers and even find a cache or two together!</p>
+<div class="banner flex-dead-center">
+  <h1 class="center-align color-white">WorldCache</h1>
+</div>
+<div display="flex-dead-center margin-sides">
+  <h2 class="center-align">What is WorldCache?</h2>
+  <p class="center-align">Every heard of Geocaching? Geocaching is a outdoor, recreational treasure hunt, founded in 2000. Since then millions of caches are scatterted across the world, waiting for users to find them. WorldCache is a third party website that makes finding caches easier and more accesible for all.</p>
+  <br>
+  <br>
+  <div class="mockups-container">
+    <h2>How do I use WorldCache?</h2>
+    <h3>It's easy, really!</h3>
+    <div class="mockups">
+      <div class="mockup">
+        <img class="mockups" src="{{ url_for('static', filename='imgs/mockup1.svg') }}" alt="Step 1: Sign In" title="Step 1: Sign In">
+        <h4>Step 1: Sign In</h4>
+      </div>
+      <div class="line"></div>
+      <div class="mockup">
+        <img class="mockups" src="{{ url_for('static', filename='imgs/mockup2.svg') }}" alt="Step 2: Search" title="Step 2: Search">
+        <h4>Step 2: Search</h4>
+      </div>
+      <div class="line"></div>
+      <div class="mockup">
+        <img class="mockups" src="{{ url_for('static', filename='imgs/mockup3.svg') }}" alt="Step 3: Find" title="Step 3: Find">
+        <h4>Step 3: Find</h4>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <h2 class="center-align">What are the Primary Differences Between Geocaching.com and WorldCache?</h2>
+  <p class="center-align">WorldCache makes finding Geocaches <i>even easier!</i> With the reimagined, dynamic design, information is easier to find then ever! WorldCache also is a community for Geocaching. It allows you to meet other Geocachers and even find a cache or two together!</p>
+</div>
 {% endblock %}

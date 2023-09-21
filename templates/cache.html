@@ -10,11 +10,11 @@
       {% if cacheType == "traditional"%}
         <img class="cacheType" src="{{ url_for('static', filename='imgs/type_traditional.svg') }}" alt="Traditional Cache" title="Traditional Cache">
       {% elif cacheType == "multicache"%}
-        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_multi.svg') }}" alt="Multi-Cache" title="Multi-Cache">
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_multicache.svg') }}" alt="Multi-Cache" title="Multi-Cache">
       {% elif cacheType == "mystery"%}
         <img class="cacheType" src="{{ url_for('static', filename='imgs/type_mystery.svg') }}" alt="Mystery Cache" title="Mystery Cache">
       {% elif cacheType == "earthcache"%}
-        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_earth.svg') }}" alt="EarthCache" title="EarthCache">
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_earthcache.svg') }}" alt="EarthCache" title="EarthCache">
       {% elif cacheType == "letterbox"%}
         <img class="cacheType" src="{{ url_for('static', filename='imgs/type_letterbox.svg') }}" alt="Letterbox Hybrid" title="Letterbox Hybrid">
       {% elif cacheType == "event"%}
@@ -22,9 +22,9 @@
       {% elif cacheType == "cito"%}
         <img class="cacheType" src="{{ url_for('static', filename='imgs/type_cito.svg') }}" alt="Cache In Trash Out Event (CITO)" title="Cache In Trash Out Event (CITO)">
       {% elif cacheType == "mega_event"%}
-        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_mega.svg') }}" alt="Mega Event Cache" title="Mega Event Cache">
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_mega_event.svg') }}" alt="Mega Event Cache" title="Mega Event Cache">
       {% elif cacheType == "giga_event"%}
-        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_giga.svg') }}" alt="Giga Event Cache" title="Giga Event Cache">
+        <img class="cacheType" src="{{ url_for('static', filename='imgs/type_giga_event.svg') }}" alt="Giga Event Cache" title="Giga Event Cache">
       {% elif cacheType == "virtual"%}
         <img class="cacheType" src="{{ url_for('static', filename='imgs/type_virtual.svg') }}" alt="Virtual Cache" title="Virtual Cache">
       {% elif cacheType == "wherigo"%}
@@ -44,8 +44,17 @@
         <img class="rating" src="{{ url_for('static', filename='imgs/terrain.png') }}" alt="Terrain" title="Terrain">
         <p class="rating">{{ cacheTerrain }}</p>
       </div>
+      <div class="rating rating-size">
+        <img class="rating rating-size" src="{{ url_for('static', filename='imgs/size.svg') }}" alt="Size" title="Size">
+        <p class="rating rating-size">{{ cacheSize }}</p>
+      </div>
     </div>
-    <p>{{ cacheDescription }}</p>
+    <p>{{ cacheDescription | safe }}</p>
+    <br>
+    <div class="flex-center flex-column width-100-percent">
+      <h3>Hint:</h3>
+      <span class="hint">{{ cacheHint }}</span>
+    </div>
   </div>
   <div class="cache-controls">
     <div class="log-cache">
@@ -56,10 +65,12 @@
         <span>View All Logs ({{ logCount }})</span>
       </a>
       <a class="log-cache">
-        <span>Item 2</span>
+        <span>View Gallery Images (0)</span>
       </a>
       </ul>
     </div>
+    <br>
+    <div class="mini-map">{{ map_html | safe }}</div>
   </div>
 </div>
 

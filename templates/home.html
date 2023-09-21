@@ -4,5 +4,18 @@
 {% block head %}{% endblock %}
 
 {% block content %}
-<h1>WORLDCACHING IS COOL</h1>
+<div class="flex-dead-center flex-column banner">
+  <h1 class="center-align color-white">WorldCache</h1>
+  <form class="search center-align padding-10 flex-dead-center" method="post">
+    <input class="search" type="search" id="search-caches" name="search-caches" placeholder="Search for Coordinates, Caches or Trackables" list="suggestions" required>
+    <button class="search" type="submit"><img class="search" src="{{ url_for('static', filename='imgs/search.svg') }}" alt="Search" title="Search"></button>
+  </form>
+  
+  <!-- function processGeolocationResult(position) { html5Lat = position.coords.latitude; html5Lon = position.coords.longitude; html5TimeStamp = position.timestamp; html5Accuracy = position.coords.accuracy; return (html5Lat).toFixed(8) + “, ” + (html5Lon).toFixed(8); } -->
+  
+  <datalist id="suggestions">
+    <option value="🏠Home Location">
+    <option value="📌Current Location">
+  </datalist>
+</div>
 {% endblock %}
